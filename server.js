@@ -1,17 +1,28 @@
-const express        = require('express');
-const MongoClient    = require('mongodb').MongoClient;
-const bodyParser     = require('body-parser');
-const app            = express();
+const port = config.PORT;
+const bodyParser = require('body-parser');
+const config     = require('./config');
+const morgan = require('morgan');
+const mongoose =  require('mongoose');
+const cores = require('cors');
+const app = express();
 
-var path = require("path");  
-var mongo = require("mongoose");     
-var morgan = require("morgan");  
-var db = require("./config.js");  
 
-var port = 8000;  
+mongoose.connect(config.database.MONGODB_URL);
 
-app.listen(port,function(){   
-    console.log("server start on port"+ port);  
-})  
+mongoose.connection.on('connected', () => {
+    console.log('Connected to database ' + config.database.MONGODB_URL);
+});
+mongoose.connection.on('error', (err) => {
+    console.log('Error in database '+ config.database.MONGODB_URL);
+    console.log(err);
+});
 
-  
+app.use(morgan('dev'));
+app.use(bodyParser({extended: false}));
+app.use(cors());
+
+require('./routes')(app);
+
+app.listen(port, () => {
+    console.log(" is listenning on port: " + port);
+});
