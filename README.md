@@ -1,20 +1,31 @@
 # ApplicationNOSQL
 
-## introduction:
+## Introduction:
 
 This specific document has been written to help anyone to better understand the application made for the asignment in noSQL.
 
 ## Installation:
 
-Please remember that, in order to be able to run the app a few things need to be installed first. To do so, go on your command prompt and follow the next steps:
+### Prequisites:
+To run the app, you need to have the following installed on your device:
+    MongoDb
+    NodeJs
 
-* Install node.js
-* Install any kind of packaging that is required at the beggining of index.js, just so:
+### Install
 
-```sh
-$ cd /path/to/workspace
-$ npm install ---
+Start by cloning the project from github
 ```
+git clone https://github.com/vlefranc/ApplicationNOSQL.git
+```
+
+Then, add all the dependencies required with
+```
+npm install 
+```
+(see the package.json file)
+
+
+
 
 ## How it works:
 
