@@ -1,0 +1,25 @@
+{
+  "name": "applicationnosql",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vlefranc/ApplicationNOSQL.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vlefranc/ApplicationNOSQL/issues"
+  },
+  "homepage": "https://github.com/vlefranc/ApplicationNOSQL#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "mongose": "0.0.2-security",
+    "morgan": "^1.9.0"
+  }
+}
