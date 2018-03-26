@@ -24,7 +24,16 @@ npm install
 ```
 (see the package.json file)
 
+### Import Companies dataset in MongoDB
 
+To run this project, you need first to import the dataset companies2.json (we provided the file in this project) into your MongoDB server.
+
+Once MongoDB is started on your device, run the following commands in a new prompt:
+```
+cd path\to\MongoDB\directory\bin
+mongoimport --db applicationdb --collection companies --drop --file path/to/companies2.json
+
+```
 
 
 ## How it works:
