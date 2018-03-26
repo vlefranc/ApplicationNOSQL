@@ -1,9 +1,9 @@
 const Company = require('./model');
 const CompanyRouter = require('express').Router;
-const CompanyQuery = require('.queries');
+const CompanyQuery = require('./queries');
 
 CompanyRouter.get('/competitors', (req, res ,next) => {
-    MoviesController.sortCompetitors(req, req, (err,list) => {
+    CompanyQuery.sortCompetitors((err,list) => {
           if(err) {
                 console.log("Error " + err);
                 res.sendStatus(500);
@@ -13,8 +13,8 @@ CompanyRouter.get('/competitors', (req, res ,next) => {
     });
 });
 
-moviesRouter.get('/buyers', (req, res ,next) => {
-    MoviesController.GroupByBuyers(req, req, (err,list) => {
+CompanyRouter.get('/buyers', (req, res ,next) => {
+    CompanyQuery.GroupByBuyers((err,list) => {
           if(err) {
                 console.log("Error " + err);
                 res.sendStatus(500);
@@ -24,8 +24,8 @@ moviesRouter.get('/buyers', (req, res ,next) => {
     });
 });
 
-moviesRouter.get('/offices', (req, res ,next) => {
-    MoviesController.PrintOfficesEuro(req, req, (err,list) => {
+CompanyRouter.get('/offices', (req, res ,next) => {
+    CompanyQuery.PrintOfficesEuro((err,list) => {
           if(err) {
                 console.log("Error " + err);
                 res.sendStatus(500);

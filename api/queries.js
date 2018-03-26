@@ -14,20 +14,18 @@ exports.sortCompetitors = function(callback){
     var unwindCompetitors={$unwind: "$competitions"}
     var groupComp={$group : {"_id":"$name","nb_of_competitors":{$sum:1}}}
     var sortDown={$sort:{"nb_of_competitors":1}}
-    Company.aggregate([unwindCompetitors,matchEmployees,groupComp,sortDown], callback)
-
-};
+    Company.aggregate([unwindCompetitors,matchEmployees,groupComp,sortDown], callback);
+}
 
 //For each company acquired by another one, group them by the name of the buying 
 //company and sort these buyers by the number of companies they bought.
 
 exports.GroupByBuyers = function(callback){
     var unwindCompany ={$unwind:"$acquisition.acquiring_company.name"};
-var groupByBuyers ={$group: {"_id":"$acquisition.acquiring_company.name","nb_of_companies_bought":{$sum:1}}};
-var sortByNumberBought= {$sort:{"nb_of_companies_bought":-1}};
-Company.aggregate([unwindCompany, groupByBuyers, sortByNumberBought], callback)
-
-};
+    var groupByBuyers ={$group: {"_id":"$acquisition.acquiring_company.name","nb_of_companies_bought":{$sum:1}}};
+    var sortByNumberBought= {$sort:{"nb_of_companies_bought":-1}};
+    Company.aggregate([unwindCompany, groupByBuyers, sortByNumberBought], callback);
+}
 
 
 //For each company, print their name and the addresses of their offices in the US, 
@@ -35,14 +33,13 @@ Company.aggregate([unwindCompany, groupByBuyers, sortByNumberBought], callback)
 
 exports.PrintOfficesEuro = function(callback)
 {
-
     var unwindOffice= {$unwind : "$offices"}
-var matchEuroInUsa={$match:{"offices.country_code":"USA","total_money_raised":{$regex:"€",$options:"i"}}}
-var projectInfo= {$project: {"_id":0,"name":1}}
-var groupBy={$group: {"_id":"$name","nb_of_offices":{$sum:1}}}
-var sortByAsc={$sort:{"nb_of_offices":-1}}
-Company.aggregate([unwindOffice, matchEuroInUsa,projectInfo,groupBy,sortByAsc], callback);
-};
+    var matchEuroInUsa={$match:{"offices.country_code":"USA","total_money_raised":{$regex:"€",$options:"i"}}}
+    var projectInfo= {$project: {"_id":0,"name":1}}
+    var groupBy={$group: {"_id":"$name","nb_of_offices":{$sum:1}}}
+    var sortByAsc={$sort:{"nb_of_offices":-1}}
+    Company.aggregate([unwindOffice, matchEuroInUsa,projectInfo,groupBy,sortByAsc], callback);
+}
 
 
 
