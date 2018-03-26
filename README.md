@@ -39,7 +39,14 @@ mongoimport --db applicationdb --collection companies --drop --file path/to/comp
 
 Finally, if you wish to run the app, please use the following code
 
-```sh
-$ node server.js 
 ```
+ node server.js 
+```
+
+## Visualize the results 
+
+To visualize to results, you can use Postman or your browser by entering the following urls (each one corresponds to one query):
+    -http://localhost:8888/api/competitors
+    -http://localhost:8888/api/buyers
+    -http://localhost:8888/api/offices
 
