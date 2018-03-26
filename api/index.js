@@ -2,7 +2,7 @@ const Company = require('./model');
 const CompanyRouter = require('express').Router;
 const CompanyQuery = require('.queries');
 
-moviesRouter.get('/competitors', (req, res ,next) => {
+CompanyRouter.get('/competitors', (req, res ,next) => {
     MoviesController.sortCompetitors(req, req, (err,list) => {
           if(err) {
                 console.log("Error " + err);

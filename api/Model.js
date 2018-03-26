@@ -1,7 +1,7 @@
 
 var mongoose = require('mongoose');  
-var Schema = mongoose.Schema;  
-var companiesSchema = new Schema({      
+//var Schema = mongoose.Schema;  
+var companiesSchema = mongoose.Schema({      
     id: { type: name   },       
     acquisition: { 
         acquired_day :{type:String},
@@ -60,4 +60,4 @@ var companiesSchema = new Schema({
     video_embeds : {type :Array},
 },{ versionKey: false });  
 
-const Companies = module.exports = mongoose.model('Companies', companiesSchema)
+const Companies = module.exports = mongoose.model('Companies', companiesSchema); 

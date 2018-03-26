@@ -35,7 +35,6 @@ mongoimport --db applicationdb --collection companies --drop --file path/to/comp
 
 ```
 
-
 ## How it works:
 
 Finally, if you wish to run the app, please use the following code
