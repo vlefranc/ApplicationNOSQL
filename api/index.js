@@ -1,5 +1,5 @@
 const Company = require('./model');
-const CompanyRouter = require('express').Router;
+const CompanyRouter = require('express').Router();
 const CompanyQuery = require('./queries');
 
 CompanyRouter.get('/competitors', (req, res ,next) => {
@@ -34,3 +34,5 @@ CompanyRouter.get('/offices', (req, res ,next) => {
           }
     });
 });
+
+module.exports = CompanyRouter;

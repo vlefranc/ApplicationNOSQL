@@ -9,7 +9,7 @@ const Company = require('./model');
 //(In order to buy the companies with less competitors to crush them.)
 
 exports.sortCompetitors = function(callback){
-
+    //Company.find(callback)
     var matchEmployees={$match:{"competitions":{'$not': {'$size': 0}}}}
     var unwindCompetitors={$unwind: "$competitions"}
     var groupComp={$group : {"_id":"$name","nb_of_competitors":{$sum:1}}}
